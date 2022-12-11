@@ -134,18 +134,22 @@ int main(int ac, char **av)
 	char **a;
 	char **b;
 	int i;
+	int j;
 	a = ft_calloc(ac , sizeof(char *));
 	b = ft_calloc(ac , sizeof(char *));
 	i = 0;
+	j = 0;
 	while (av[i])
-	{
-		a[i] = av[i + 1];
 		i++;
+	while (av[j])
+	{
+		a[i - j - 1] = av[j];
+		j++; 
 	}
-	i = 0;
+	a[j - 1] = 0;
 	ft_error(a);
 	//sa(a);
-	ecrase_avant(a);
+	////ecrase_avant(a);
 	the_writer(a,b);
 	return (0);
 }
