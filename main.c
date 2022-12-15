@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:54 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/14 19:09:28 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:00:40 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(int ac, char **av)
 	av = split_args(av);
 	a = reverse_words(av);
 	ft_error(a);
-	the_writer(a, b);
+	push_swap(a,b);
 	return (0);
 }

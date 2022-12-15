@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/14 19:12:52 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/15 12:46:05 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char **my_spliter(char *s);
 char *protecter(char *str);
 char *cutter(char *s);
 int space_counter(char *s);
+void push_swap(char **a, char **b);
 
 #endif
