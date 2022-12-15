@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/13 17:53:43 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/14 19:12:52 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ char **rrb(char **b);
 void rrr(char ***a, char ***b);
 void the_writer(char **a, char **b);
 char **reverse_words(char **av);
+char **my_spliter(char *s);
+char **ft_joiner(char **s1, char **s2);
+char **split_args(char **v);
+char **my_spliter(char *s);
+char *protecter(char *str);
+char *cutter(char *s);
+int space_counter(char *s);
 
 #endif
