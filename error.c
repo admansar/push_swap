@@ -6,25 +6,60 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/13 18:08:24 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:12:16 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// to check if the input is a number (returns 1 in this case)
-int	check_if_number(char *c)
+int yup(int j, int n, int i, char *c) 
 {
-	int	i;
+		while (j > 0)
+		{
+			j = j / 10;
+			n++;
+		}
+		while (c[i++] == '0')
+			n++;
+		return (n);
+}
 
-	i = 0;
-	while (c[i])
+// to check if the input is a number (returns 0 in this case)
+int  check_if_number(char *c)
+{
+	int n = 0;
+	int i = 0;
+	int j = ft_atoi(c);
+	if (j > 0)
 	{
-		if (!(c[i] >= '0' && c[i] <= '9'))
-			return (0);
-		i++;
+		if (c[0] == '+')
+		{
+			n++;
+			i++;
+		}
+		n = yup(j, n, i, c);
+		if (ft_strlen(c) == n)
+			return (1);
 	}
-	return (1);
+	else if (j < 0)
+	{
+		n++;
+		j = -j;
+		i++;
+		n = yup(j, n, i, c);
+		if (ft_strlen (c) == n)
+			return (1);
+	}
+	else if ( j == 0)
+	{
+		if (c[i] == '+' || c[i] == '-')
+		   i++;	
+		while (c[i] == '0')
+			i++;
+		if (ft_strlen (c) == i)
+			return (1);
+	}
+	return (0);
 }
 // to check that you have not repeat a world
 int	detective(char **c)

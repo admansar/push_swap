@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/13 18:01:00 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:44:52 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,19 @@ char	**reverse_words(char **av)
 		j++;
 	}
 	a[j - 1] = 0;
+	return (a);
+}
+char **words(char **av)
+{
+	int i;
+	char **a;
+
+	i = 1;
+	a = ft_calloc(ft_strcount(av), sizeof(char *));
+	while (av[i])
+	{
+		a[i - 1] = av[i];
+		i++;
+	}
 	return (a);
 }

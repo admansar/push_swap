@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/15 13:40:03 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:38:36 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -63,8 +63,9 @@ void push_swap(char **a, char **b)
 		if (j == 0)
 		{
 			pb(&a, &b);
+	//		the_writer(a, b);
 		}
-		else if (j < (total / 2) - 1)
+		else if (j < (total / 2))
 		{
 			while (n < j)
 			{
@@ -72,7 +73,7 @@ void push_swap(char **a, char **b)
 					break ;
 				a = ra(a);
 				j--;
-			//	the_writer(a, b);
+				//the_writer(a, b);
 			}
 		}
 		else
@@ -83,13 +84,9 @@ void push_swap(char **a, char **b)
 					break;
 				a = rra(a);
 				j++;
-			//	the_writer(a,b);
+				//the_writer(a,b);
 			}
 		}
-		//if (done(a) == 0)
-		//	break;
-		//if (snuffer(a) == 0)
-		//	the_writer(a,b);
 		
 	}
 	n = 0;
@@ -97,21 +94,7 @@ void push_swap(char **a, char **b)
 	while (n < j)
 	{
 		pa(&a,&b);
-		//the_writer(a,b);
+	//the_writer(a,b);
 		n++;
 	}
 }
-/*
-int main(int ac, char **av)
-{
-	char **ptr;
-	ptr = ft_calloc(sizeof(char *), ft_strcount(av));
-	int i = 1;
-	while (av[i])
-	{
-		ptr[i - 1] = av[i];
-		i++;
-	}
-	printf("%d", snuffer(ptr));
-	return (0);
-}*/
