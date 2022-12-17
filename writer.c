@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/15 14:44:52 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/17 12:15:35 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ void	the_writer(char **a, char **b)
 	k = max(ft_strcount(a), ft_strcount(b));
 	while (i < k)
 	{
-		if (a[i] != NULL && b[i] != NULL)
-			ft_printf("%s\t%s\n", a[i], b[i]);
-		else if ((a[i] == NULL || !a[i]) && b[i] != NULL)
+		if (i >= ft_strcount(a) && b[i] != NULL)
 			ft_printf(" \t%s\n", b[i]);
-		else if (a[i] != NULL && (b[i] == NULL || !b[i]))
+		else if (a[i] != NULL && i >= ft_strcount (b))
 			ft_printf("%s\t \n", a[i]);
+		else
+			ft_printf("%s\t%s\n", a[i], b[i]);
 		i++;
 	}
 	ft_printf("---\t---\n a \t b \n");

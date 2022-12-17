@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/15 16:38:36 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/17 12:41:08 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -57,13 +57,37 @@ void push_swap(char **a, char **b)
 	int n = 0;
 	int total = ft_strcount(a);
 	//the_writer(a, b);
+	if (total == 3)
+	{
+		if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
+						(a[2]), ft_atoi(a[1])) == ft_atoi(a[1]))
+		{
+			sa(a);
+			//the_writer(a, b);
+			a = rra(a);
+			//the_writer(a, b);
+		}
+		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
+					(a[2]), ft_atoi(a[1])) == ft_atoi(a[2]) && max(ft_atoi
+					(a[0]), ft_atoi(a[2])) == ft_atoi(a[2]) )
+		{
+			sa(a);
+			//the_writer(a, b);
+		}
+		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
+					(a[2]), ft_atoi(a[1])) == ft_atoi(a[2]))
+		{
+			a = ra(a);
+		}
+		
+	}
 	while (!(done(a) == 1))
 	{
 		j = snuffer(a);
 		if (j == 0)
 		{
 			pb(&a, &b);
-	//		the_writer(a, b);
+			//the_writer(a, b);
 		}
 		else if (j < (total / 2))
 		{
@@ -73,7 +97,7 @@ void push_swap(char **a, char **b)
 					break ;
 				a = ra(a);
 				j--;
-				//the_writer(a, b);
+			//	the_writer(a, b);
 			}
 		}
 		else
@@ -84,7 +108,7 @@ void push_swap(char **a, char **b)
 					break;
 				a = rra(a);
 				j++;
-				//the_writer(a,b);
+			//	the_writer(a,b);
 			}
 		}
 		
