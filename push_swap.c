@@ -6,29 +6,31 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/20 13:23:33 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:32:48 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-char  **sorted_clone(char **c)
+char	**sorted_clone(char **c)
 {
-	char **a;
-	int i = 0;
-	char *tmp;
-	a = malloc (sizeof(char *) * (ft_strcount(c) + 1));
+	char	**a;
+	int		i;
+	char	*tmp;
+
+	i = 0;
+	a = malloc(sizeof(char *) * (ft_strcount(c) + 1));
 	while (c[i])
 	{
 		a[i] = c[i];
 		i++;
 	}
-	a[i] = c[i];	
+	a[i] = c[i];
 	i = 1;
-	while(a[i])
+	while (a[i])
 	{
 		if (ft_atoi(a[i - 1]) > ft_atoi(a[i]))
 		{
-			tmp = malloc (sizeof(char) * (ft_strlen (a[i]) + 1));
+			tmp = malloc(sizeof(char) * (ft_strlen(a[i]) + 1));
 			tmp = a[i];
 			a[i] = a[i - 1];
 			a[i - 1] = tmp;
@@ -39,23 +41,26 @@ char  **sorted_clone(char **c)
 	return (a);
 }
 
-int next_num(char **a, int xhal)
+int	next_num(char **a, int xhal)
 {
-	int i = 0;
-	int j = ft_strcount(a) / xhal;
-	static int b;
+	int			i;
+	int			j;
+	static int	b;
 
-	b +=j;
+	i = 0;
+	j = ft_strcount(a) / xhal;
+	b += j;
 	if (b > ft_strcount(a))
 		b = ft_strcount(a) - 1;
 	return (ft_atoi(a[b]));
 }
-char **needed_clone(char **a, int ke)
+char	**needed_clone(char **a, int ke)
 {
-	int i = 0;
-	char **re;
+	int		i;
+	char	**re;
 
-	re = malloc(sizeof (char *) * (ke + 1));
+	i = 0;
+	re = malloc(sizeof(char *) * (ke + 1));
 	while (i <= ke)
 	{
 		re[i] = a[i];
@@ -65,9 +70,11 @@ char **needed_clone(char **a, int ke)
 	return (re);
 }
 //to make sure that everything is done (return 1 if everything cool)
-int done(char **a)
+int	done(char **a)
 {
-	int i = 1;
+	int	i;
+
+	i = 1;
 	while (a[i])
 	{
 		if (ft_atoi(a[i - 1]) > ft_atoi(a[i]))
@@ -76,9 +83,11 @@ int done(char **a)
 	}
 	return (1);
 }
-int done_b(char **b)
+int	done_b(char **b)
 {
-	int i = 1;
+	int	i;
+
+	i = 1;
 	while (b[i])
 	{
 		if (ft_atoi(b[i - 1]) < ft_atoi(b[i]))
@@ -88,22 +97,28 @@ int done_b(char **b)
 	return (1);
 }
 //trouver le minimum
-int min(char **a)
+int	min(char **a)
 {
-	int i = 0;
-	int min = ft_atoi(a[0]);
-	while(a[i])
+	int	i;
+	int	min;
+
+	i = 0;
+	min = ft_atoi(a[0]);
+	while (a[i])
 	{
 		if (ft_atoi(a[i]) < min)
 			min = ft_atoi(a[i]);
-	i++;
+		i++;
 	}
 	return (min);
 }
-int max_num(char **b)
+int	max_num(char **b)
 {
-	int i = 0;
-	int max = ft_atoi(b[0]);
+	int	i;
+	int	max;
+
+	i = 0;
+	max = ft_atoi(b[0]);
 	while (b[i])
 	{
 		if (ft_atoi(b[i]) > max)
@@ -113,11 +128,15 @@ int max_num(char **b)
 	return (max);
 }
 //localiser le maximum (position)
-unsigned int snuffer_max(char **a)
+unsigned int	snuffer_max(char **a)
 {
-	unsigned int i = 0;
-	unsigned int j = 0;
-	int k = max_num(a);
+	unsigned int	i;
+	unsigned int	j;
+	int				k;
+
+	i = 0;
+	j = 0;
+	k = max_num(a);
 	while (a[i])
 	{
 		if (ft_atoi(a[i]) == k)
@@ -127,11 +146,15 @@ unsigned int snuffer_max(char **a)
 	return (j);
 }
 //localiser le minimum (position)
-unsigned int snuffer_min(char **a)
+unsigned int	snuffer_min(char **a)
 {
-	unsigned int i = 0;
-	unsigned int j = 0;
-	int k = min(a);
+	unsigned int	i;
+	unsigned int	j;
+	int				k;
+
+	i = 0;
+	j = 0;
+	k = min(a);
 	while (a[i])
 	{
 		if (ft_atoi(a[i]) == k)
@@ -140,34 +163,33 @@ unsigned int snuffer_min(char **a)
 	}
 	return (j);
 }
-char **case_of_3(int total, char **a, char **b)
+char	**case_of_3(int total, char **a, char **b)
 {
-	static int i;
 	if (total == 3)
 	{
-		if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
-						(a[2]), ft_atoi(a[1])) == ft_atoi(a[1]))
+		if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0])
+			&& max(ft_atoi(a[2]), ft_atoi(a[1])) == ft_atoi(a[1]))
 		{
 			sa(a);
 			// the_writer(a, b);
 			a = rra(a);
 			// the_writer(a, b);
 		}
-		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
-					(a[2]), ft_atoi(a[1])) == ft_atoi(a[2]) && max(ft_atoi
-					(a[0]), ft_atoi(a[2])) == ft_atoi(a[2]) )
+		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0])
+				&& max(ft_atoi(a[2]), ft_atoi(a[1])) == ft_atoi(a[2])
+				&& max(ft_atoi(a[0]), ft_atoi(a[2])) == ft_atoi(a[2]))
 		{
 			sa(a);
 			// the_writer(a, b);
 		}
-		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0]) && max(ft_atoi
-					(a[2]), ft_atoi(a[1])) == ft_atoi(a[2]))
+		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[0])
+				&& max(ft_atoi(a[2]), ft_atoi(a[1])) == ft_atoi(a[2]))
 		{
 			a = ra(a);
 		}
-		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[1]) && max(ft_atoi
-					(a[2]), ft_atoi(a[1])) == ft_atoi(a[1]) && max(ft_atoi
-					(a[0]), ft_atoi(a[2])) == ft_atoi(a[2]))
+		else if (max(ft_atoi(a[0]), ft_atoi(a[1])) == ft_atoi(a[1])
+				&& max(ft_atoi(a[2]), ft_atoi(a[1])) == ft_atoi(a[1])
+				&& max(ft_atoi(a[0]), ft_atoi(a[2])) == ft_atoi(a[2]))
 		{
 			pb(&a, &b);
 			// the_writer(a, b);
@@ -176,41 +198,43 @@ char **case_of_3(int total, char **a, char **b)
 			pa(&a, &b);
 			// the_writer(a, b);
 		}
-	else
-	{
-		a = rra(a);
-	}		
+		else
+		{
+			a = rra(a);
+		}
 	}
 	return (a);
 }
-int number_still_inside(char **a, int ke)
+int	number_still_inside(char **a, int ke)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (a[i])
 	{
-		if (ft_atoi(a[i]) < ke)
+		if (ft_atoi(a[i]) <= ke)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-void case_500(char **a, char **b)
+void	case_(char **a, char **b, int c)
 {
-	int i = 0;
-	int n;
-	char **alpha;
-	int ke = 0;
+	int		i;
+	char	**alpha;
+	int		ke;
+
+	i = 0;
+	ke = 0;
 	while (ke != ft_strcount(a) - 1 && ft_strcount(a))
 	{
-		ke = next_num(sorted_clone(a), 50);
+		ke = next_num(sorted_clone(a), c / 10);
 		while (number_still_inside(a, ke))
 		{
-			
-
 			if (ft_atoi(a[i]) <= ke)
 			{
-				pb(&a,&b);
+				pb(&a, &b);
 				// the_writer(a,b);
 			}
 			else
@@ -228,75 +252,18 @@ void case_500(char **a, char **b)
 			pa(&a, &b);
 			// the_writer(a, b);
 		}
-		else 
+		else
 		{
-			if (snuffer_max(b) < (ft_strcount(b) /2) + 1)
+			if ((int)snuffer_max(b) < (ft_strcount(b) / 2) + 1)
 			{
 				while (snuffer_max(b))
 				{
 					b = rb(b);
 					// the_writer(a, b);
 				}
-			}
-			else 
-			{
-				while (snuffer_max(b))
-				{
-					b = rrb(b);
-					// the_writer(a, b);
-				}
-			}
-		}
-	}
-}
-
-void case_100(char **a, char **b)
-{
-	int i = 0;
-	int n;
-	char **alpha;
-	int ke = 0;
-	while (ft_strcount(a))
-	{
-		ke = next_num(sorted_clone(a), 10);
-		while (number_still_inside(a, ke) && ft_strcount(a))
-		{
-			
-
-			if (ft_atoi(a[i]) <= ke)
-			{
-				pb(&a,&b);
-				// the_writer(a,b);
 			}
 			else
 			{
-				a = ra(a);
-				// the_writer(a, b);
-			}
-		}
-	}
-	int total;
-	alpha = 0;
-	while (ft_strcount(b))
-	{
-		if (snuffer_max(b) == 0)
-		{
-			pa(&a, &b);
-			// the_writer(a, b);
-		}
-		else 
-		{
-			total = ft_strcount(b);
-			if (snuffer_max(b) < (total /2) + 1)
-			{
-				while (snuffer_max(b))
-				{
-					b = rb(b);
-					// the_writer(a, b);
-				}
-			}
-			else 
-			{
 				while (snuffer_max(b))
 				{
 					b = rrb(b);
@@ -307,18 +274,18 @@ void case_100(char **a, char **b)
 	}
 }
 
-void push_swap(char **a, char **b)
+void	push_swap(char **a, char **b)
 {
+	unsigned int	j;
+	int				n;
+	int				total;
+
 	if (done(a) == 1)
 	{
 		return ;
 	}
-	unsigned int j;
-	unsigned int m;
-	unsigned int M;
-	int ke;
-	int n = 0;
-	int total = ft_strcount(a);
+	n = 0;
+	total = ft_strcount(a);
 	// the_writer(a, b);
 	if (total == 2)
 	{
@@ -327,7 +294,7 @@ void push_swap(char **a, char **b)
 			sa(a);
 			// the_writer(a, b);
 		}
-		return;
+		return ;
 	}
 	else if (total == 3)
 	{
@@ -335,7 +302,7 @@ void push_swap(char **a, char **b)
 		b = NULL;
 		return ;
 	}
-	else if (total < 10)
+	else if (total < 100)
 	{
 		while (!(done(a) == 1))
 		{
@@ -354,13 +321,13 @@ void push_swap(char **a, char **b)
 			else if (j == 1)
 			{
 				sa(a);
-			// the_writer(a, b);
+				// the_writer(a, b);
 				pb(&a, &b);
-			// the_writer(a, b);
+				// the_writer(a, b);
 			}
-			else if (j < (total / 2) + 1)
+			else if ((int)j < (total / 2) + 1)
 			{
-				while (n < j)
+				while (n < (int)j)
 				{
 					if (done(a) == 1)
 						break ;
@@ -371,11 +338,10 @@ void push_swap(char **a, char **b)
 			}
 			else
 			{
-				while (total > j)
+				while (total > (int)j)
 				{
-
 					if (done(a) == 1)
-						break;
+						break ;
 					a = rra(a);
 					j++;
 					// the_writer(a,b);
@@ -384,19 +350,19 @@ void push_swap(char **a, char **b)
 		}
 		n = 0;
 		j = ft_strcount(b);
-		while (n < j)
+		while (n < (int)j)
 		{
-			pa(&a,&b);
+			pa(&a, &b);
 			// the_writer(a,b);
 			n++;
 		}
 	}
-	else if (total <= 100) 
+	else if (total < 500)
 	{
-		case_100(a,b);	
+		case_(a, b, 100);
 	}
-	else 
+	else
 	{
-			case_500(a,b);
-	}		
+		case_(a, b, 500);
+	}
 }

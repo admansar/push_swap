@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 17:53:54 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/20 21:18:31 by admansar         ###   ########.fr       */
+/*   Created: 2022/12/10 11:18:24 by admansar          #+#    #+#             */
+/*   Updated: 2022/12/21 16:50:57 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+//reverse rotate b (integral of cos)
+//you should affect
+char	**rrb(char **b)
 {
-	char	**a;
-	char	**b;
+	char	**re;
 
-	if (ac == 1)
-		exit(1);
-	b = ft_calloc(ac, sizeof(char *));
-	av = split_args(av);
-	a = words(av);
-	ft_error(a);
-	push_swap(a, b);
-	free(a);
-	free(b);
-	return (0);
+	re = reverse_rotate(b);
+	ft_printf("rrb\n");
+	return (re);
+}
+
+// rra && rrb in the same time
+// passage par address
+void	rrr(char ***a, char ***b)
+{
+	*a = reverse_rotate(*a);
+	*b = reverse_rotate(*b);
+	ft_printf("rrr\n");
 }

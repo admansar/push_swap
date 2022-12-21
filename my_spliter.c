@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:02:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/14 19:12:55 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:23:50 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	space_counter(char *s)
 	j++;
 	return (j);
 }
+
 char	*cutter(char *s)
 {
 	int		i;
@@ -49,19 +50,16 @@ char	*cutter(char *s)
 	}
 	return (tmp);
 }
-char	*protecter(char *str)
+
+char	*protecter(char *str, int i)
 {
-	int		i;
 	int		j;
 	int		k;
 	char	*re;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	if (str[i] == ' ')
-		while (str[i] == ' ')
-			i++;
+	while (str[i] == ' ')
+		i++;
 	j = i;
 	while (str[i])
 		i++;
@@ -74,40 +72,19 @@ char	*protecter(char *str)
 	j = 0;
 	while (str[i])
 	{
-		re[j] = str[i];
-		i++;
-		j++;
+		re[j++] = str[i++];
 		if (i == k)
 			break ;
 	}
-	re[j] = '\0';
 	return (re);
 }
-char	**my_spliter(char *s)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	**re;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	s = cutter(s);
-	s = protecter(s);
-	re = ft_calloc(sizeof(char *), (space_counter(s) + 1));
-	while (s[i])
-	{
-		if (s[i] == ' ' && i > 0)
-		{
-			re[j] = ft_calloc(sizeof(char), (i - k + 1));
-			j++;
-			k = i;
-			k++;
-		}
-		i++;
-	}
-	re[j] = ft_calloc(sizeof(char), (i - k + 1));
+char	**norm(char *s, char **re)
+{
+	int	i;
+	int	j;
+	int	k;
+
 	i = 0;
 	j = 0;
 	k = 0;
@@ -123,5 +100,28 @@ char	**my_spliter(char *s)
 		i++;
 		k++;
 	}
+	return (re);
+}
+
+char	**my_spliter(char *s, int i, int j, int k)
+{
+	char	**re;
+
+	s = cutter(s);
+	s = protecter(s, 0);
+	re = ft_calloc(sizeof(char *), (space_counter(s) + 1));
+	while (s[i])
+	{
+		if (s[i] == ' ' && i > 0)
+		{
+			re[j] = ft_calloc(sizeof(char), (i - k + 1));
+			j++;
+			k = i;
+			k++;
+		}
+		i++;
+	}
+	re[j] = ft_calloc(sizeof(char), (i - k + 1));
+	re = norm(s, re);
 	return (re);
 }

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/17 12:15:35 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/21 16:42:32 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	the_writer(char **a, char **b)
 	{
 		if (i >= ft_strcount(a) && b[i] != NULL)
 			ft_printf(" \t%s\n", b[i]);
-		else if (a[i] != NULL && i >= ft_strcount (b))
+		else if (a[i] != NULL && i >= ft_strcount(b))
 			ft_printf("%s\t \n", a[i]);
 		else
 			ft_printf("%s\t%s\n", a[i], b[i]);
@@ -32,6 +32,7 @@ void	the_writer(char **a, char **b)
 	}
 	ft_printf("---\t---\n a \t b \n");
 }
+
 //reverse teh words and delete the first one (./a.out in my case)
 char	**reverse_words(char **av)
 {
@@ -50,10 +51,11 @@ char	**reverse_words(char **av)
 	a[j - 1] = 0;
 	return (a);
 }
-char **words(char **av)
+
+char	**words(char **av)
 {
-	int i;
-	char **a;
+	int		i;
+	char	**a;
 
 	i = 1;
 	a = ft_calloc(ft_strcount(av), sizeof(char *));

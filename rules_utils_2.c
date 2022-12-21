@@ -1,53 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_args.c                                       :+:      :+:    :+:   */
+/*   rules_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 19:04:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:43:05 by admansar         ###   ########.fr       */
+/*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
+/*   Updated: 2022/12/21 16:52:32 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**ft_joiner(char **s1, char **s2)
+char	**rftl(char **a)
 {
-	char	**re;
-	int		j;
 	int		i;
+	char	**re;
 
-	j = 0;
 	i = 0;
-	re = ft_calloc(ft_strcount(s1) + ft_strcount(s2) + 1, sizeof(char *));
-	while (i < ft_strcount(s1))
+	re = ft_calloc(ft_strcount(a) + 2, sizeof(char *));
+	while (a[i])
 	{
-		re[i] = s1[i];
+		re[i] = a[i];
 		i++;
 	}
-	while (j < ft_strcount(s2))
-	{
-		re[i + j] = s2[j];
-		j++;
-	}
-	re[i + j] = s2[j];
+	re[i] = a[0];
+	re = ecrase_avant(re);
 	return (re);
 }
 
-char	**split_args(char **av)
+//rotate in the sense off integral of cos
+char	**reverse_rotate(char **a)
 {
-	char	**c;
-	char	**c2;
+	char	**re;
 	int		i;
 
 	i = 0;
-	c = malloc(1);
-	while (av[i])
+	re = malloc((ft_strcount(a) + 1) * sizeof(char *));
+	re[0] = a[ft_strcount(a) - 1];
+	while (a[i])
 	{
-		c2 = my_spliter(av[i], 0, 0, 0);
-		c = ft_joiner(c, c2);
+		re[i + 1] = a[i];
 		i++;
 	}
-	return (c);
+	re[i] = a[i];
+	return (re);
 }
