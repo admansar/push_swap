@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:52:09 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/21 17:32:03 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ char	**switch_1_2(char **c)
 	char	*tmp;
 	int		i;
 
+	tmp = ft_calloc(sizeof(char), ft_strlen(c[0]) + 1);
 	i = 0;
 	while (c[0][i])
-		i++;
-	tmp = ft_calloc(sizeof(char), i + 1);
-	i = 0;
-	while (c[0][i++])
+	{
 		tmp[i] = c[0][i];
+		i++;
+	}
 	i = 0;
 	while (c[1][i])
 	{
