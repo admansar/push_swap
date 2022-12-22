@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/22 13:11:29 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:24:57 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -42,11 +42,9 @@ char	**sorted_clone(char **c)
 
 int	next_num(char **a, int xhal)
 {
-	int			i;
 	int			j;
 	static int	b;
 
-	i = 0;
 	j = ft_strcount(a) / xhal;
 	b += j;
 	if (b > ft_strcount(a))
