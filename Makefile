@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = error.c main.c my_spliter.c push_swap.c push_swap_utiles_1.c push_swap_utiles_2.c push_swap_utiles_3.c rules_1.c rules_2.c rules_3.c rules_utils_1.c rules_utils_2.c split_args.c writer.c 
+SRC = error.c main.c my_spliter.c push_swap.c push_swap_utiles_1.c push_swap_utiles_2.c push_swap_utiles_3.c rules_1.c rules_2.c rules_3.c rules_utils_1.c rules_utils_2.c split_args.c writer.c error_utils.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -28,7 +28,7 @@ AR = ar rcs
 
 RM = rm -rf
 
-all : norm make_libft $(NAME) done
+all :norm make_libft $(NAME) done 
 
 make_libft :
 	@echo "\033[1;91m"
@@ -55,11 +55,11 @@ clean :
 	$(RM) $(OBJ)
 
 clean_libft :
-	@echo "\033[0;33m everything is clean now"
 	@cd libft/ && make fclean
 	@cd ..
 fclean : clean clean_libft
 	$(RM) $(NAME)
+	@echo "\033[0;33m everything is clean now :)"
 
 re : fclean all
 

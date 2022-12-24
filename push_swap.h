@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/22 13:24:31 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/24 13:50:43 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 
 # include "libft/ft_printf.h"
 # include "libft/libft.h"
+# include <limits.h>
 
-int				check_if_number(char *c, int i, int n, int j);
-int				detective(char **c);
-void			ft_error(char **c);
 char			**switch_1_2(char **c);
 int				max(int a, int b);
 int				ft_strcount(char **c);
@@ -65,5 +63,11 @@ void			simple_sort(char **a, char **b, int j, int n);
 void			case_(char **a, char **b, int c);
 void			free_exit(char **a, char **b);
 void			push_swap(char **a, char **b);
+char			*n9i(char *c);
+char			*hla9(char *c);
+int				check_if_number(char *c, int i, int n, int j);
+int				detective(char **c);
+void			ft_error(char **c);
+int				yup(int j, int n, int i, char *c);
 
 #endif

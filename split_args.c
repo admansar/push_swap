@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 19:04:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:43:05 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/23 17:21:46 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char	**ft_joiner(char **s1, char **s2)
 		j++;
 	}
 	re[i + j] = s2[j];
+	free(s1);
 	return (re);
 }
 
@@ -49,5 +50,6 @@ char	**split_args(char **av)
 		c = ft_joiner(c, c2);
 		i++;
 	}
+	free(c2);
 	return (c);
 }
