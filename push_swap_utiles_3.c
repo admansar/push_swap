@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/22 13:25:04 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/24 17:03:08 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -88,6 +88,21 @@ char	**norm_ra(char **a, int n, int j)
 		if (done(a) == 1)
 			break ;
 		a = ra(a);
+	}
+	return (a);
+}
+
+char	**the_clone(char **c)
+{
+	char	**a;
+	int		i;
+
+	i = 0;
+	a = ft_calloc(sizeof(char *), (ft_strcount(c) + 1));
+	while (c[i])
+	{
+		a[i] = c[i];
+		i++;
 	}
 	return (a);
 }

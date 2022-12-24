@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 13:48:42 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/24 16:04:47 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	sensor(char **av)
 	j = 0;
 	while (j < ft_strcount(av))
 	{
-		dual = malloc(ft_strlen(av[j]) + 1);
 		dual = ft_itoa(ft_atoi(av[j]));
 		while (av[j][i])
 		{

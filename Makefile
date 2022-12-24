@@ -28,7 +28,7 @@ AR = ar rcs
 
 RM = rm -rf
 
-all :norm make_libft $(NAME) done 
+all :norm make_libft $(NAME) done
 
 make_libft :
 	@echo "\033[1;91m"

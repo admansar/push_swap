@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/23 17:08:19 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/24 16:29:18 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ char	**first_to_first(char **a, char **b)
 	}
 	re[0] = a[0];
 	re[j + 1] = 0;
+	if (b == malloc(ft_strcount(b)))
+		free(b);
 	return (re);
 }
 
@@ -97,5 +99,7 @@ char	**ecrase_avant(char **c)
 		i++;
 	}
 	re[i] = c[i + 1];
+	if (c == malloc(ft_strcount(c)))
+		free(c);
 	return (re);
 }

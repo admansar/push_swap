@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 12:02:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/23 16:49:30 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/24 15:49:54 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ char	*protecter(char *str, int i)
 		if (i == k)
 			break ;
 	}
+	free(str);
 	return (re);
 }
 
