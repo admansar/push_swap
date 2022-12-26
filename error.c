@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 16:04:47 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:48:05 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ int	yup(int j, int n, int i, char *c)
 	return (n);
 }
 
+void error_(char **a)
+{
+	ft_printf("Error\n");
+	free(a);
+	exit(1);
+}
+
 void	ft_error(char **c)
 {
 	int	i;
@@ -64,15 +71,13 @@ void	ft_error(char **c)
 		ne = ft_atoi(c[i]);
 		if (check_if_number(c[i], k, p, ne) == 0)
 		{
-			ft_printf("Error\n");
-			exit(1);
+			error_(a);
 		}
 		else
 			i++;
 	}
 	if (detective(c) == 1 || sensor(c) == 0)
 	{
-		ft_printf("Error\n");
-		exit(1);
+			error_(a);
 	}
 }
