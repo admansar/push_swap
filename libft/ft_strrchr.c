@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:56:16 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/06 13:29:57 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:39:15 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 	int	r;
 
-	r = ft_strlen(s);
+	r = ft_strlen((char *)s);
 	i = r;
 	while (i >= 0)
 	{

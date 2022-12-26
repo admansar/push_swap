@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:47:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/18 14:25:03 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:45:34 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (0);
-	ptr = malloc(ft_strlen(s) + 1);
+	ptr = malloc(ft_strlen((char *)s) + 1);
 	if (!ptr)
 		return (NULL);
 	i = 0;

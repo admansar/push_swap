@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:46:04 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/10 03:07:48 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:40:05 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	int		n;
 
-	i = ft_strlen(s1);
+	i = ft_strlen((char *)s1);
 	n = 0;
 	ptr = (char *)malloc(sizeof(char) * i + 1);
 	if (!ptr)

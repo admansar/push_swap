@@ -6,13 +6,13 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:04:14 by admansar          #+#    #+#             */
-/*   Updated: 2022/09/30 11:28:58 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:35:13 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned long	ft_strlen(const char *b)
+unsigned long	ft_strlen(char *b)
 {
 	int	j;
 

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:11:42 by admansar          #+#    #+#             */
-/*   Updated: 2022/10/13 21:38:03 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:43:27 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	if (len > (size_t)ft_strlen(s))
+	if (len > (size_t)ft_strlen((char *)s))
 	{
-		ptr = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+		ptr = (char *)malloc(sizeof(char) * ft_strlen((char *)s) + 1);
 		maker((char *)s, ptr, start, len);
 		return (ptr);
 	}
