@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 13:33:30 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 13:37:55 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:46:24 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,10 @@ int	check_if_number(char *c, int i, int n, int j)
 
 char	*hla9(char *c)
 {
-	int		i;
 	char	*re;
 
-	i = 0;
-	while (c[i])
-		i++;
-	re = malloc(sizeof(char) * i);
-	i = 0;
-	while (c[i + 1])
-	{
-		re[i] = c[i + 1];
-		i++;
-	}
-	re[i] = c[i + 1];
+	re = ft_calloc(sizeof(char), ft_strlen(c));
+	ft_strlcpy(re, c + 1, ft_strlen(c));
 	free(c);
 	return (re);
 }
@@ -64,10 +54,9 @@ char	*n9i(char *c)
 	int	i;
 
 	i = 0;
-	if (ft_atoi(c) == 0)
-		if (c[i] == '-')
-			c = hla9(c);
-	if (c[i] == '+')
+	if (c[i] == '-' && ft_strlen(c) > 1)
+		c = hla9(c);
+	if (c[i] == '+' && ft_strlen(c) > 1)
 		c = hla9(c);
 	while (c[i] == '0' && c[i + 1])
 		c = hla9(c);
@@ -84,7 +73,7 @@ int	detective(char **c)
 	j = 0;
 	while (c[i])
 	{
-		c[i] = n9i(c[i]);
+		n9i(c[i]);
 		j = i + 1;
 		while (c[j])
 		{

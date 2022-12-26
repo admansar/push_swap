@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 17:01:13 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:27:17 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int				detective(char **c);
 void			ft_error(char **c);
 int				yup(int j, int n, int i, char *c);
 char			**the_clone(char **c);
+void			error_(char **a);
 
 #endif

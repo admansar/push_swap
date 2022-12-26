@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/26 17:21:13 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 20:29:50 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	yup(int j, int n, int i, char *c)
 	return (n);
 }
 
-void error_(char **a)
+void	error_(char **a)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	ft_printf("Error\n");
@@ -77,7 +77,8 @@ void	ft_error(char **c)
 	while (c[i])
 	{
 		ne = ft_atoi(c[i]);
-		if (check_if_number(c[i], k, p, ne) == 0)
+		if (check_if_number(c[i], k, p, ne) == 0
+			|| ft_strncmp(c[i], "-2147483649", 11) == 0)
 		{
 			error_(c);
 		}
