@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/26 16:39:43 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:15:59 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,15 @@ char	**words(char **av)
 {
 	int		i;
 	char	**a;
+	int		h;
 
 	i = 1;
 	a = ft_calloc(ft_strcount(av), sizeof(char *));
 	while (av[i])
 	{
-		a[i - 1] = av[i];
+		h = ft_strlen (av[i]) + 1; 
+		a[i - 1] = malloc(sizeof(char) * h);
+		ft_strlcpy (a[i - 1], av[i] , h);
 		i++;
 	}
 	i = 0;
