@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 11:18:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:58:43 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 11:00:19 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	**rra(char **a)
 	char	**re;
 
 	re = reverse_rotate(a);
+	free(a);
 	ft_printf("rra\n");
 	return (re);
 }

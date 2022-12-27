@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/22 13:15:00 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 20:26:43 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -75,6 +75,14 @@ void	case_(char **a, char **b, int c)
 
 void	free_exit(char **a, char **b)
 {
+	int	i;
+
+	i = 0;
+	while (a[i])
+	{
+		free(a[i]);
+		i++;
+	}
 	free(a);
 	free(b);
 	exit(0);

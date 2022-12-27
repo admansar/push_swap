@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/26 23:10:07 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 00:02:01 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	the_writer(char **a, char **b)
 }
 
 //reverse teh words and delete the first one (./a.out in my case)
-char	**reverse_words(char **av)
+/*char	**reverse_words(char **av)
 {
 	int		j;
 	int		i;
@@ -51,7 +51,7 @@ char	**reverse_words(char **av)
 	a[j - 1] = 0;
 	return (a);
 }
-
+*/
 char	**words(char **av)
 {
 	int		i;
