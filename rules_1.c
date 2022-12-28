@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:39:30 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/27 20:14:57 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:48:11 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	pb(char ***a, char ***b)
 void	pa(char ***b, char ***a)
 {
 	*b = first_to_first(*a, *b);
-	while (1){};
 	*a = ecrase_avant(*a);
 	ft_printf("pa\n");
 }

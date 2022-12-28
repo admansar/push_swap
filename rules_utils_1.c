@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/27 20:14:39 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:41:56 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,11 @@ char	**first_to_first(char **a, char **b)
 		re[j + 1] = ft_calloc(h, sizeof(char));
 		ft_strlcpy(re[j + 1], b[j], h);
 		j++;
+		free(b[j]);
 	}
 	h = ft_strlen(a[0]) + 1;
-	if(b[j])
-	free(b[j]);
-	else
-	{
-		free(b[0]);
-		free(b);
-	}
+	re[0] = ft_calloc(h, sizeof(char));
+	ft_strlcpy(re[0], a[0], h);
 	return (re);
 }
 
@@ -90,8 +86,38 @@ char	**ecrase_avant(char **c)
 		re[i] = ft_calloc(h, sizeof(char *));
 		ft_strlcpy(re[i], c[i + 1], h);
 		i++;
-		free(c[i]);
+	//	free(c[i]);
 	}
-	free(c);
+	i = 0;
+	while (c[i])
+	{
+		free(c[i]);
+		i++;
+	}
+//	free(c);
 	return (re);
 }
+/*
+char	**first_to_first(char **a, char **b)
+{
+	int		i;
+	int		j;
+	char	**re;
+
+	i = 0;
+	j = 0;
+	while (b[i])
+		i++;
+	re = ft_calloc(sizeof(char *), i + 2);
+	while (j < i)
+	{
+		re[j + 1] = b[j];
+		j++;
+	}
+	re[0] = a[0];
+	re[j + 1] = 0;
+	if (b == malloc(ft_strcount(b)))
+		free(b);
+	return (re);
+}
+*/

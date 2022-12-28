@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/27 10:58:37 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/28 17:48:52 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 char	**rftl(char **a)
 {
+	int		h;
 	int		i;
+	int		j;
 	char	**re;
 
 	i = 0;
+	j = ft_strcount(a) + 2;
 	re = ft_calloc(ft_strcount(a) + 2, sizeof(char *));
 	while (a[i])
 	{
-		re[i] = a[i];
+		h = ft_strlen (a[i]) + 1;
+		re[i] = ft_calloc(h, sizeof(char));
+		ft_strlcpy(re[i], a[i], h);
+//		printf("%d\n", i);
+//		printf("%d\n", j);
 		i++;
 	}
-	re[i] = a[0];
+	h = ft_strlen (a[0]) + 1;
+	re[i] = ft_calloc(h, sizeof(char));
+	ft_strlcpy(re[i], a[0], h);
 	re = ecrase_avant(re);
-	if (a == malloc(ft_strcount(a)))
-		free(a);
 	return (re);
 }
 
@@ -36,15 +43,21 @@ char	**reverse_rotate(char **a)
 {
 	char	**re;
 	int		i;
+	int		h;
+	int		j;
 
 	i = 0;
-	re = malloc((ft_strcount(a) + 1) * sizeof(char *));
-	re[0] = a[ft_strcount(a) - 1];
-	while (a[i])
+	j = ft_strcount(a) - 1;
+	re = ft_calloc((ft_strcount(a) + 1), sizeof(char *));
+	h = ft_strlen(a[ft_strcount(a) - 1]) + 1;
+	re[0] = ft_calloc(h, sizeof(char));
+	ft_strlcpy(re[0] ,a[ft_strcount(a) - 1], h);
+	while (i < j)
 	{
-		re[i + 1] = a[i];
+		h = ft_strlen(a[i]) + 1;
+		re[i + 1] = ft_calloc(h, sizeof(char));
+		ft_strlcpy(re[i + 1] ,a[i], h);
 		i++;
 	}
-	re[i] = a[i];
 	return (re);
 }

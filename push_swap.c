@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/27 20:26:43 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/28 19:20:51 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -70,6 +70,7 @@ void	case_(char **a, char **b, int c)
 			}
 		}
 	}
+	the_writer(a, b);
 	push_back(a, b);
 }
 
@@ -100,7 +101,7 @@ void	push_swap(char **a, char **b)
 		if (!(done(a) == 1))
 			sa(a);
 	}
-	else if (total == 3)
+	else if (total == 0)
 		a = case_of_3(a, b);
 	else if (total < 100)
 		simple_sort(a, b, 0, 0);
