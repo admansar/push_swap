@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 13:33:30 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/26 18:46:24 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/30 01:27:27 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ char	*hla9(char *c)
 {
 	char	*re;
 
-	re = ft_calloc(sizeof(char), ft_strlen(c));
-	ft_strlcpy(re, c + 1, ft_strlen(c));
-	free(c);
-	return (re);
+		re = ft_calloc(sizeof(char), ft_strlen(c));
+		ft_strlcpy(re, c + 1, ft_strlen(c));
+		free(c);
+		return (re);
 }
 
 char	*n9i(char *c)

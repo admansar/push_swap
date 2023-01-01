@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 11:18:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/28 18:12:45 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/31 13:36:10 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**rrb(char **b)
 {
 	char	**re;
 
-	re = reverse_rotate(b);
+	re = ft_str_pro_cpy(NULL, reverse_rotate(b));
 	ft_printf("rrb\n");
 	return (re);
 }

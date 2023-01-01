@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 16:39:30 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/28 17:48:11 by admansar         ###   ########.fr       */
+/*   Updated: 2023/01/01 03:49:21 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ void	ss(char ***c1, char ***c2)
 // atention !!! passage par adress
 void	pb(char ***a, char ***b)
 {
-	*b = first_to_first(*a, *b);
-	*a = ecrase_avant(*a);
+	*b = ft_str_pro_cpy(NULL, first_to_first(*a, *b));
+	*a = ft_str_pro_cpy(NULL, ecrase_avant(*a));
 	ft_printf("pb\n");
 }
 
 void	pa(char ***b, char ***a)
 {
-	*b = first_to_first(*a, *b);
-	*a = ecrase_avant(*a);
+	*b = ft_str_pro_cpy(NULL, first_to_first(*a, *b));
+	*a = ft_str_pro_cpy(NULL, ecrase_avant(*a));
 	ft_printf("pa\n");
 }

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/26 18:27:17 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/31 02:43:20 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/ft_printf.h"
 # include "libft/libft.h"
 # include <limits.h>
+/*# include "Memd/mem.h"*/
 
 char			**switch_1_2(char **c);
 int				max(int a, int b);
@@ -26,7 +27,7 @@ char			**sa(char **c);
 char			**sb(char **c);
 void			ss(char ***c1, char ***c2);
 void			pb(char ***a, char ***b);
-void			pa(char ***b, char ***a);
+void			pa(char ***a, char ***b);
 char			**rftl(char **a);
 char			**ra(char **a);
 char			**rb(char **b);
@@ -61,7 +62,7 @@ char			**norm_ra(char **a, int n, int j);
 char			**norm_rra(char **a, int total, int j);
 void			simple_sort(char **a, char **b, int j, int n);
 void			case_(char **a, char **b, int c);
-void			free_exit(char **a, char **b);
+void			free_exit(char **a, char **b, int i1, int i2);
 void			push_swap(char **a, char **b);
 char			*n9i(char *c);
 char			*hla9(char *c);
@@ -70,6 +71,7 @@ int				detective(char **c);
 void			ft_error(char **c);
 int				yup(int j, int n, int i, char *c);
 char			**the_clone(char **c);
+char			**ft_str_pro_cpy(char **re, char **a);
 void			error_(char **a);
 
 #endif

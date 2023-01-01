@@ -41,7 +41,7 @@ norm :
 
 $(NAME) : $(SRC) 
 	@echo "\033[0;33m"
-	$(CC) $(CFLAGS) $(SRC) libft/libft.a -o $(NAME) | lolcat
+	$(CC) $(CFLAGS) $(SRC) Memd/libmemd.a libft/libft.a -o $(NAME) | lolcat
 
 clean :
 	@echo "\033[0;31m"

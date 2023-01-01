@@ -6,13 +6,42 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/28 18:14:36 by admansar         ###   ########.fr       */
+/*   Updated: 2023/01/01 03:50:18 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
+char	**ft_str_pro_cpy(char **re, char **a)
+{
+	int i;
+	int h;
+	
+	i = 0;
+	re = ft_calloc(ft_strcount(a) + 1, sizeof(char *));
+	i = 0;
+	while (a[i])
+	{
+		h = ft_strlen(a[i]) + 1;
+		re[i] = ft_calloc(h, sizeof(char));
+		ft_strlcpy(re[i], a[i], h);
+		i++;
+	}
+	i = 0;
+	while (a[i])
+	{
+		free(a[i]);
+		a[i] = NULL;
+		i++;
+	}
+	free(a);
+	a = NULL;
+	return (re);
+}
+
 char	**case_of_3(char **a, char **b)
 {
+	char **re;
+
 	if (ft_atoi(a[0]) > ft_atoi(a[1]) && ft_atoi(a[1]) > ft_atoi(a[2]))
 	{
 		sa(a);
@@ -36,7 +65,9 @@ char	**case_of_3(char **a, char **b)
 	{
 		a = rra(a);
 	}
-	return (a);
+	re = ft_str_pro_cpy(NULL, a);
+	//the_writer(re, b);
+	return (re);
 }
 
 int	number_still_inside(char **a, int ke)
@@ -79,17 +110,21 @@ void	push_back(char **a, char **b)
 			}
 		}
 	}
+	free_exit(a, b, 1, 1);
 }
 
 char	**norm_ra(char **a, int n, int j)
 {
+	char	**re;
+
 	while (n < (int)j--)
 	{
 		if (done(a) == 1)
 			break ;
 		a = ra(a);
 	}
-	return (a);
+	re = ft_str_pro_cpy(NULL, a);
+	return (re);
 }
 
 char	**the_clone(char **c)
@@ -101,7 +136,7 @@ char	**the_clone(char **c)
 	a = ft_calloc(sizeof(char *), (ft_strcount(c) + 1));
 	while (c[i])
 	{
-		a[i] = c[i];
+		ft_strlcpy(a[i], c[i], ft_strlen(c[i]) + 1);
 		i++;
 	}
 	return (a);

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:10:26 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/28 17:41:56 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/31 20:14:34 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,30 @@ char	**first_to_first(char **a, char **b)
 
 	i = 0;
 	j = 0;
-	while (b[i])
-		i++;
-	re = ft_calloc(sizeof(char *), i + 2);
-	while (j < i)
+	re = ft_calloc(sizeof(char *), ft_strcount(b) + 2);
+	while (b[j])
 	{
 		h = ft_strlen(b[j]) + 1;
 		re[j + 1] = ft_calloc(h, sizeof(char));
 		ft_strlcpy(re[j + 1], b[j], h);
 		j++;
-		free(b[j]);
 	}
+	while (b[i])
+	{
+		free(b[i]);
+		b[i] = NULL;
+		i++;
+	}
+	free(b);
+	b = NULL;
 	h = ft_strlen(a[0]) + 1;
 	re[0] = ft_calloc(h, sizeof(char));
 	ft_strlcpy(re[0], a[0], h);
+//	while (1){};
+//	printf("----^---^---\n");
+//	the_writer(re, a);
+//	printf("------^-----\n");
+
 	return (re);
 }
 
@@ -83,18 +93,19 @@ char	**ecrase_avant(char **c)
 	while (c[i + 1])
 	{
 		h = ft_strlen (c[i + 1]) + 1;
-		re[i] = ft_calloc(h, sizeof(char *));
+		re[i] = ft_calloc(h, sizeof(char));
 		ft_strlcpy(re[i], c[i + 1], h);
 		i++;
-	//	free(c[i]);
 	}
 	i = 0;
 	while (c[i])
 	{
 		free(c[i]);
+		c[i] = NULL;
 		i++;
 	}
-//	free(c);
+	free(c);
+	c = NULL;
 	return (re);
 }
 /*

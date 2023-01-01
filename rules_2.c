@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 11:18:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/28 19:51:12 by admansar         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:06:37 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	**ra(char **a)
 {
 	char	**re;
 
-	re = rftl(a);
+	//re = rftl(a);
+	re = ft_str_pro_cpy(NULL, rftl(a));
 	ft_printf("ra\n");
 	return (re);
 }
@@ -29,12 +30,12 @@ char	**rb(char **a)
 	char	**re;
 
 	i = 0;
-	re = rftl(a);
-	while (a[i])
-	{
-		free(a[i]);
-		i++;
-	}
+	re = ft_str_pro_cpy(NULL, rftl(a));
+//	while (a[i])
+//	{
+//		free(a[i]);
+//		i++;
+//	}
 	ft_printf("rb\n");
 	return (re);
 }
@@ -56,13 +57,7 @@ char	**rra(char **a)
 	char	**re;
 
 	i = 0;
-	re = reverse_rotate(a);
-//	while (a[i])
-//	{
-//		free(a[i]);
-//		i++;
-//	}
-//	free(a);
+	re = ft_str_pro_cpy(NULL, reverse_rotate(a));
 	ft_printf("rra\n");
 	return (re);
 }
