@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:54 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/20 21:18:31 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/26 22:39:25 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		exit(1);
-	b = ft_calloc(ac, sizeof(char *));
+	b = ft_calloc(1, sizeof(char *));
 	av = split_args(av);
 	a = words(av);
 	ft_error(a);

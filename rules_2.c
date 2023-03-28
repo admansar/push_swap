@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 11:18:24 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:58:43 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/26 23:19:47 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,18 @@ char	**ra(char **a)
 {
 	char	**re;
 
-	re = rftl(a);
+	re = ft_str_pro_cpy(NULL, rftl(a));
 	ft_printf("ra\n");
 	return (re);
 }
 
 char	**rb(char **a)
 {
+	int		i;
 	char	**re;
 
-	re = rftl(a);
+	i = 0;
+	re = ft_str_pro_cpy(NULL, rftl(a));
 	ft_printf("rb\n");
 	return (re);
 }
@@ -45,9 +47,11 @@ void	rr(char ***a, char ***b)
 //you should affect
 char	**rra(char **a)
 {
+	int		i;
 	char	**re;
 
-	re = reverse_rotate(a);
+	i = 0;
+	re = ft_str_pro_cpy(NULL, reverse_rotate(a));
 	ft_printf("rra\n");
 	return (re);
 }

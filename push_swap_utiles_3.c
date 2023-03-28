@@ -6,37 +6,61 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 17:03:08 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/26 23:15:48 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-char	**case_of_3(char **a, char **b)
+char	**ft_str_pro_cpy(char **re, char **a)
 {
-	if (ft_atoi(a[0]) > ft_atoi(a[1]) && ft_atoi(a[1]) > ft_atoi(a[2]))
+	int	i;
+	int	h;
+
+	re = ft_calloc(ft_strcount(a) + 1, sizeof(char *));
+	i = 0;
+	while (a[i])
 	{
-		sa(a);
-		a = rra(a);
+		h = ft_strlen(a[i]) + 1;
+		re[i] = ft_calloc(h, sizeof(char));
+		ft_strlcpy(re[i], a[i], h);
+		i++;
 	}
-	else if (ft_atoi(a[2]) > ft_atoi(a[0]) && ft_atoi(a[0]) > ft_atoi(a[1]))
+	i = 0;
+	while (a[i])
 	{
-		sa(a);
+		free(a[i]);
+		a[i] = NULL;
+		i++;
 	}
-	else if (ft_atoi(a[0]) > ft_atoi(a[1]) && ft_atoi(a[2]) > ft_atoi(a[1]))
+	free(a);
+	a = NULL;
+	return (re);
+}
+
+char	**case_of_3(char ***a, char **b)
+{
+	if (ft_atoi((*a)[0]) > ft_atoi((*a)[1]) && ft_atoi((*a)[1]) > ft_atoi((*a)[2]))
 	{
-		a = ra(a);
+		sa((*a));
+		(*a) = rra((*a));
 	}
-	else if (ft_atoi(a[1]) > ft_atoi(a[2]) && ft_atoi(a[2]) > ft_atoi(a[0]))
+	else if (ft_atoi((*a)[2]) > ft_atoi((*a)[0]) && ft_atoi((*a)[0]) > ft_atoi((*a)[1]))
 	{
-		pb(&a, &b);
-		sa(a);
-		pa(&a, &b);
+		sa((*a));
+	}
+	else if (ft_atoi((*a)[0]) > ft_atoi((*a)[1]) && ft_atoi((*a)[2]) > ft_atoi((*a)[1]))
+	{
+		(*a) = ra((*a));
+	}
+	else if (ft_atoi((*a)[1]) > ft_atoi((*a)[2]) && ft_atoi((*a)[2]) > ft_atoi((*a)[0]))
+	{
+		pb(&(*a), &b);
+		sa((*a));
+		pa(&(*a), &b);
 	}
 	else
-	{
-		a = rra(a);
-	}
-	return (a);
+		(*a) = rra((*a));
+	return (NULL);
 }
 
 int	number_still_inside(char **a, int ke)
@@ -79,17 +103,7 @@ void	push_back(char **a, char **b)
 			}
 		}
 	}
-}
-
-char	**norm_ra(char **a, int n, int j)
-{
-	while (n < (int)j--)
-	{
-		if (done(a) == 1)
-			break ;
-		a = ra(a);
-	}
-	return (a);
+	free_exit(a, b, 1, 1);
 }
 
 char	**the_clone(char **c)
@@ -101,7 +115,7 @@ char	**the_clone(char **c)
 	a = ft_calloc(sizeof(char *), (ft_strcount(c) + 1));
 	while (c[i])
 	{
-		a[i] = c[i];
+		ft_strlcpy(a[i], c[i], ft_strlen(c[i]) + 1);
 		i++;
 	}
 	return (a);

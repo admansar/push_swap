@@ -6,65 +6,62 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/24 17:09:02 by admansar         ###   ########.fr       */
+/*   Updated: 2023/01/01 20:18:21 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-char	**sorted_clone(char **c)
+char	**swaper(char **a, char *tmp, int i)
 {
-	char	**a;
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	a = ft_calloc(sizeof(char *), (ft_strcount(c) + 1));
-	while (c[i])
-	{
-		a[i] = c[i];
-		i++;
-	}
-	i = 1;
 	while (a[i])
 	{
 		if (ft_atoi(a[i - 1]) > ft_atoi(a[i]))
 		{
 			tmp = malloc(sizeof(char) * (ft_strlen(a[i]) + 1));
-			tmp = a[i];
-			a[i] = a[i - 1];
-			a[i - 1] = tmp;
-			i = 1;
+			ft_strlcpy(tmp, a[i], ft_strlen(a[i]) + 1);
+			ft_strlcpy(a[i], a[i - 1], ft_strlen(a[i - 1]) + 1);
+			ft_strlcpy(a[i - 1], tmp, ft_strlen(tmp) + 1);
+			free(tmp);
+			i = 0;
 		}
 		i++;
 	}
 	return (a);
 }
 
-int	next_num(char **a, int xhal)
+char	**sorted_clone(char **c)
 {
-	int			j;
-	static int	b;
+	char	**a;
+	int		i;
 
-	j = ft_strcount(a) / xhal;
-	b += j;
-	if (b > ft_strcount(a))
-		b = ft_strcount(a) - 1;
-	return (ft_atoi(a[b]));
+	i = 0;
+	a = ft_calloc(sizeof(char *), (ft_strcount(c) + 1));
+	while (c[i])
+	{
+		a[i] = ft_calloc(ft_strlen(c[i]) + 1, sizeof(char));
+		ft_strlcpy(a[i], c[i], ft_strlen(c[i]) + 1);
+		i++;
+	}
+	i = 1;
+	a = swaper(a, NULL, i);
+	return (a);
 }
 
 char	**needed_clone(char **a, int ke)
 {
 	int		i;
 	char	**re;
+	int		h;
 
 	i = 0;
-	re = malloc(sizeof(char *) * (ke + 1));
+	re = ft_calloc(sizeof(char *), (ke + 2));
 	while (i <= ke)
 	{
-		re[i] = a[i];
+		h = ft_strlen(a[i]) + 1;
+		re[i] = ft_calloc(h, sizeof(char));
+		ft_strlcpy(re[i], a[i], h);
 		i++;
 	}
-	re[i] = NULL;
 	return (re);
 }
 

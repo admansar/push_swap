@@ -6,32 +6,24 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/22 13:15:00 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/27 23:02:56 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-char	**norm_rra(char **a, int total, int j)
-{
-	while (total > (int)j++)
-	{
-		if (done(a) == 1)
-			break ;
-		a = rra(a);
-	}
-	return (a);
-}
-
 void	simple_sort(char **a, char **b, int j, int n)
 {
-	int	total;
+	char	**co = NULL;
 
 	while (!(done(a) == 1))
 	{
-		total = ft_strcount(a);
 		j = snuffer_min(a);
-		if (total == 3)
-			a = case_of_3(a, b);
+		if (ft_strcount(a) == 3)
+		{
+			co = ft_calloc(1, sizeof(char *));
+			case_of_3(&a, co);
+//			free(co);
+		}
 		else if (j == 0)
 			pb(&a, &b);
 		else if (j == 1)
@@ -39,44 +31,104 @@ void	simple_sort(char **a, char **b, int j, int n)
 			sa(a);
 			pb(&a, &b);
 		}
-		else if ((int)j < (total / 2) + 1)
-			a = norm_ra(a, n, j);
 		else
-			a = norm_rra(a, total, j);
+			a = norm_(a, n, ft_strcount(a), j);
 	}
 	while (ft_strcount(b))
 		pa(&a, &b);
+	free_exit(a, b, 1, 1);
 }
 
 void	case_(char **a, char **b, int c)
 {
-	int	i;
-	int	ke;
+	int		i;
+	int		ke;
+	char	**so;
 
 	i = 0;
 	ke = 0;
 	while (ke != ft_strcount(a) - 1 && ft_strcount(a))
 	{
-		ke = next_num(sorted_clone(a), c / 10);
+		so = sorted_clone(a);
+		ke = next_num(so, c / 10);
 		while (number_still_inside(a, ke))
 		{
-			if (ft_atoi(a[i]) <= ke)
-			{
+			if (ft_atoi(a[0]) <= ke)
 				pb(&a, &b);
-			}
 			else
-			{
 				a = ra(a);
-			}
 		}
+		while (so[i])
+			free(so[i++]);
+		free(so);
+		i = 0;
 	}
 	push_back(a, b);
 }
 
-void	free_exit(char **a, char **b)
+void	free_exit(char **a, char **b, int i1, int i2)
 {
-	free(a);
-	free(b);
+	int	i;
+
+	if (i1 == 1)
+	{
+		i = 0;
+		while (a[i])
+		{
+			free(a[i]);
+			a[i] = NULL;
+			i++;
+		}
+	}
+	if (i2 == 1)
+		free(b);
+	b = NULL;
+	exit(0);
+}
+
+void	ranger(char **a, char **b, int chunks)
+{
+	char	**sorted;
+	int		i;
+	int		j;
+
+	sorted = sorted_clone(a);
+	i = 0;
+	j = 0;
+	while (ft_strcount(a))
+	{
+		if (ft_atoi(a[i]) <= ft_atoi(sorted[j]))
+		{
+			pb(&a, &b);
+			b = rb(b);
+			if (j + chunks < ft_strcount(sorted))
+			j++;
+		}
+		else if (ft_atoi(a[i]) > ft_atoi(sorted[j]) && ft_atoi(a[i]) <= ft_atoi(sorted[j + chunks - 1]))
+		{
+			pb(&a, &b);
+			if (j + chunks < ft_strcount(sorted))
+			j++;
+		}
+		else if (ft_strcount(a)) 
+		{
+			a = ra(a);
+		}
+	}
+	i = ft_strcount(b);
+	while (i)
+	{
+		j = snuffer_max(b);
+		if (j == 0)
+			pa(&a, &b);
+		else if (j >= i / 2)
+		{
+			b = rrb(b);
+		}
+		else 
+			b = rb(b);
+		i = ft_strcount(b);
+	}
 	exit(0);
 }
 
@@ -86,19 +138,28 @@ void	push_swap(char **a, char **b)
 
 	total = ft_strcount(a);
 	if (done(a) == 1)
-		free_exit(a, b);
+		free_exit(a, b, 1, 1);
 	else if (total == 2)
 	{
 		if (!(done(a) == 1))
 			sa(a);
 	}
 	else if (total == 3)
-		a = case_of_3(a, b);
-	else if (total < 100)
+	{
+		case_of_3(&a, b);
+		free_exit(a, b, 1, 0);
+	}
+	else if (total <= 20)
+	{
 		simple_sort(a, b, 0, 0);
-	else if (total < 500)
-		case_(a, b, 100);
+	}
+/*	else if (total < 500)
+		case_(a, b, 200);
 	else
-		case_(a, b, 500);
-	free_exit(a, b);
+		case_(a, b, 540);*/
+	else if (total <= 100) 
+		ranger(a, b, 15);
+	else
+		ranger(a, b, 30);
+//	free_exit(a, b, 1, 1);
 }
