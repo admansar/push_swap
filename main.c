@@ -6,11 +6,39 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:54 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/26 22:39:25 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:53:44 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+unsigned long counter_space(char *c)
+{
+	int i;
+
+	i = 0;
+	while (c[i] == ' ')
+		i++;
+	return (i);
+}
+
+void init_errors(int ac, char **av)
+{
+	int	i = ac;
+
+	while (i--)
+		if (!ft_strlen(av[i]))
+		{
+			write (2, "Error\n", ft_strlen("Error\n"));
+			exit(1);
+		}
+	while (++i < ac)
+		if (ft_strlen(av[i]) == counter_space(av[i]))
+		{
+			write (2, "Error\n", ft_strlen("Error\n"));
+			exit(1);
+		}
+}
 
 int	main(int ac, char **av)
 {
@@ -19,6 +47,7 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 		exit(1);
+	init_errors(ac, av);
 	b = ft_calloc(1, sizeof(char *));
 	av = split_args(av);
 	a = words(av);

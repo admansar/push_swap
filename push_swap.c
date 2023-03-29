@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/27 23:02:56 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:27:28 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -22,7 +22,6 @@ void	simple_sort(char **a, char **b, int j, int n)
 		{
 			co = ft_calloc(1, sizeof(char *));
 			case_of_3(&a, co);
-//			free(co);
 		}
 		else if (j == 0)
 			pb(&a, &b);
@@ -80,6 +79,7 @@ void	free_exit(char **a, char **b, int i1, int i2)
 			i++;
 		}
 	}
+	free(a);
 	if (i2 == 1)
 		free(b);
 	b = NULL;
@@ -129,7 +129,7 @@ void	ranger(char **a, char **b, int chunks)
 			b = rb(b);
 		i = ft_strcount(b);
 	}
-	exit(0);
+	free_exit(a, b, 1, 0);
 }
 
 void	push_swap(char **a, char **b)
@@ -143,6 +143,7 @@ void	push_swap(char **a, char **b)
 	{
 		if (!(done(a) == 1))
 			sa(a);
+		free_exit(a, b, 1, 1);
 	}
 	else if (total == 3)
 	{
@@ -153,13 +154,8 @@ void	push_swap(char **a, char **b)
 	{
 		simple_sort(a, b, 0, 0);
 	}
-/*	else if (total < 500)
-		case_(a, b, 200);
-	else
-		case_(a, b, 540);*/
 	else if (total <= 100) 
 		ranger(a, b, 15);
 	else
 		ranger(a, b, 30);
-//	free_exit(a, b, 1, 1);
 }

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 13:33:30 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/26 15:51:36 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:16:03 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,31 +52,45 @@ char	*hla9(char *c)
 		i++;
 	}
 	re[i] = '\0';
-	free(c);
+	ft_strlcpy(c, re, ft_strlen(re) + 1);
+	free(re);
+//	free(c);
+	return (c);
+}
+
+char *ft_str_join(char *s1, char *s2)
+{
+	char *re;
+
+	re = ft_strjoin(s1, s2);
+	free(s2);
 	return (re);
 }
 
 char	*n9i(char *c)
 {
 	int	i;
-	char *re;
+	char *tmp;
 	int negative;
 
 	i = 0;
-	re = c;
 	negative = 0;
 	if (c[i] == '+' && ft_strlen(c) > 1)
-		re = hla9(c);
+		hla9(c);
 	else if (c[i] == '-' && ft_strlen(c) > 1)
 	{
-		re = hla9(c);
+		hla9(c);
 		negative = 1;
 	}
-	while (re[i] == '0' && re[i + 1])
-		re = hla9(re);
+	while (c[i] == '0' && c[i + 1])
+		hla9 (c);
 	if (negative == 1)
-		re = ft_strjoin("-", re);
-	return (re);
+	{
+		tmp = ft_strjoin("-", c);
+		ft_strlcpy(c ,tmp, ft_strlen(tmp) + 1);
+		free (tmp);
+	}
+	return (c);
 }
 
 // to check that you have not repeat a world
@@ -84,13 +98,15 @@ int	detective(char **c)
 {
 	int	i;
 	int	j;
+	char *holder;
 
 	i = 0;
 	j = 0;
 	while (c[i])
 	{
-		c[i] = n9i(c[i]);
-	j = i + 1;
+		holder = n9i(c[i]);
+		ft_strlcpy(c[i] , holder, ft_strlen(holder) + 1);
+		j = i + 1;
 		while (c[j])
 		{
 			if (ft_atoi(c[i]) == ft_atoi(c[j]))

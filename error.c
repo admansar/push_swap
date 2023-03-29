@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/26 15:48:22 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 01:53:21 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	error_(char **a)
 	int	i;
 
 	i = 0;
-	ft_printf("Error\n");
+	write (2, "Error\n", ft_strlen("Error\n"));
 	while (a[i])
 	{
 		free(a[i]);
