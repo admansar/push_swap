@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 01:27:28 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 16:01:24 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -86,6 +86,25 @@ void	free_exit(char **a, char **b, int i1, int i2)
 	exit(0);
 }
 
+void free_ranger(char **a, char **b, char **sorted)
+{
+	int i;
+
+	i = 0;
+	while (b[i])
+		free(b[i++]);
+	free(b);
+	i = 0;
+	while (a[i])
+		free(a[i++]);
+	free(a);
+	i = 0;
+	while (sorted[i])
+		free(sorted[i++]);
+	free (sorted);
+	exit(0);
+}
+
 void	ranger(char **a, char **b, int chunks)
 {
 	char	**sorted;
@@ -100,7 +119,7 @@ void	ranger(char **a, char **b, int chunks)
 		if (ft_atoi(a[i]) <= ft_atoi(sorted[j]))
 		{
 			pb(&a, &b);
-			b = rb(b);
+			b = rb(b);	i = 0;
 			if (j + chunks < ft_strcount(sorted))
 			j++;
 		}
@@ -129,7 +148,7 @@ void	ranger(char **a, char **b, int chunks)
 			b = rb(b);
 		i = ft_strcount(b);
 	}
-	free_exit(a, b, 1, 0);
+	free_ranger(a, b, sorted);	
 }
 
 void	push_swap(char **a, char **b)
@@ -158,4 +177,5 @@ void	push_swap(char **a, char **b)
 		ranger(a, b, 15);
 	else
 		ranger(a, b, 30);
+	free_exit(a, b, 1, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/28 18:07:46 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 13:33:08 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -60,6 +60,7 @@ char	**case_of_3(char ***a, char **b)
 	}
 	else
 		(*a) = rra((*a));
+	free(b);
 	return (NULL);
 }
 
