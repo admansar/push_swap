@@ -62,9 +62,9 @@ char	**words(char **av)
 	a = ft_calloc(ft_strcount(av), sizeof(char *));
 	while (av[i])
 	{
-		h = ft_strlen (av[i]) + 1;
+		h = ft_strlen(av[i]) + 1;
 		a[i - 1] = malloc(sizeof(char) * h);
-		ft_strlcpy (a[i - 1], av[i], h);
+		ft_strlcpy(a[i - 1], av[i], h);
 		i++;
 	}
 	i = 0;

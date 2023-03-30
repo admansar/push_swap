@@ -82,7 +82,7 @@ char	**ecrase_avant(char **c)
 	i = 0;
 	while (c[i + 1])
 	{
-		h = ft_strlen (c[i + 1]) + 1;
+		h = ft_strlen(c[i + 1]) + 1;
 		re[i] = ft_calloc(h, sizeof(char));
 		ft_strlcpy(re[i], c[i + 1], h);
 		i++;

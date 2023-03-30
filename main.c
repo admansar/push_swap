@@ -6,15 +6,15 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:54 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 01:53:44 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:43:29 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned long counter_space(char *c)
+unsigned long	counter_space(char *c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (c[i] == ' ')
@@ -22,22 +22,27 @@ unsigned long counter_space(char *c)
 	return (i);
 }
 
-void init_errors(int ac, char **av)
+void	init_errors(int ac, char **av)
 {
-	int	i = ac;
+	int	i;
 
+	i = ac;
 	while (i--)
+	{
 		if (!ft_strlen(av[i]))
 		{
-			write (2, "Error\n", ft_strlen("Error\n"));
+			write(2, "Error\n", ft_strlen("Error\n"));
 			exit(1);
 		}
+	}
 	while (++i < ac)
+	{
 		if (ft_strlen(av[i]) == counter_space(av[i]))
 		{
-			write (2, "Error\n", ft_strlen("Error\n"));
+			write(2, "Error\n", ft_strlen("Error\n"));
 			exit(1);
 		}
+	}
 }
 
 int	main(int ac, char **av)
@@ -46,12 +51,12 @@ int	main(int ac, char **av)
 	char	**b;
 
 	if (ac == 1)
-		exit(1);
+		exit(0);
 	init_errors(ac, av);
-	b = ft_calloc(1, sizeof(char *));
 	av = split_args(av);
 	a = words(av);
 	ft_error(a);
+	b = ft_calloc(1, sizeof(char *));
 	push_swap(a, b);
 	free(a);
 	free(b);

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/27 21:53:04 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 02:03:39 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/ft_printf.h"
 # include "libft/libft.h"
+# include "libft/get_next_line.h"
 # include <limits.h>
 
 char			**switch_1_2(char **c);
@@ -56,7 +57,7 @@ unsigned int	snuffer_max(char **a);
 unsigned int	snuffer_min(char **a);
 char			**case_of_3(char ***a, char **b);
 int				number_still_inside(char **a, int ke);
-void			push_back(char **a, char **b);
+void			push_back(char **a, char **b, char **sorted);
 char			**norm_ra(char **a, int n, int j);
 char			**norm_rra(char **a, int total, int j);
 void			simple_sort(char **a, char **b, int j, int n);
@@ -74,5 +75,18 @@ char			**ft_str_pro_cpy(char **re, char **a);
 void			error_(char **a);
 char			**norm_(char **a, int n, int total, int j);
 char			**ft_str_2_cpy(char **re, char **a);
+void			free_ranger(char **a, char **b, char **sorted);
+void			pa_bonus(char ***b, char ***a);
+char			**sa_bonus(char **c);
+char			**sb_bonus(char **c);
+void			ss_bonus(char ***c1, char ***c2);
+void			pb_bonus(char ***a, char ***b);
+void			pa_bonus(char ***a, char ***b);
+char			**rra_bonus(char **a);
+void   			rr_bonus(char ***a, char ***b);
+char   			**rb_bonus(char **a);
+char   			**ra_bonus(char **a);
+void			rrr_bonus(char ***a, char ***b);
+char   			**rrb_bonus(char **b);
 
 #endif

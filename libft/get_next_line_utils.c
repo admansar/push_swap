@@ -6,13 +6,13 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:49:20 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/10 10:43:12 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 00:59:05 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+int	t_strlen(char *s)
 {
 	int	i;
 
@@ -22,13 +22,13 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strdup(char *s)
+char	*t_strdup(char *s)
 {
 	int		i;
 	char	*c;
 
 	i = 0;
-	c = (char *)malloc(sizeof(char) *(ft_strlen(s) + 1));
+	c = (char *)malloc(sizeof(char) *(t_strlen(s) + 1));
 	if (!c)
 		return (NULL);
 	while (s[i])
@@ -54,7 +54,7 @@ int	the_found(char *str, char c)
 	return (0);
 }
 
-char	*my_join(char *s1, char *s2)
+char	*t_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		n;
@@ -63,8 +63,8 @@ char	*my_join(char *s1, char *s2)
 	i = 0;
 	n = 0;
 	if (!s1)
-		return (ft_strdup(s2));
-	ptr = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
+		return (t_strdup(s2));
+	ptr = malloc(sizeof(char) * (t_strlen(s1) + t_strlen(s2)) + 1);
 	if (!ptr)
 		return (NULL);
 	while (s1[i])

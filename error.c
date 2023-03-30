@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:05:17 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 16:04:33 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:37:55 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	error_(char **a)
 	int	i;
 
 	i = 0;
-	write (2, "Error\n", ft_strlen("Error\n"));
+	write(2, "Error\n", ft_strlen("Error\n"));
 	while (a[i])
 	{
 		free(a[i]);
@@ -77,8 +77,8 @@ void	ft_error(char **c)
 	while (c[i])
 	{
 		ne = ft_atoi(c[i]);
-		if (check_if_number(c[i], k, p, ne) == 0
-			|| ft_strncmp(c[i], "-2147483649", 11) == 0)
+		if (check_if_number(c[i], k, p, ne) == 0 || ft_strncmp(c[i],
+				"-2147483649", 11) == 0)
 		{
 			error_(c);
 		}

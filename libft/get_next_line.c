@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:57:18 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/10 10:42:49 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 00:58:26 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*get_save(char *save)
 		free(save);
 		return (NULL);
 	}
-	s = malloc(sizeof(char) * ft_strlen(save) - i + 1);
+	s = malloc(sizeof(char) * t_strlen(save) - i + 1);
 	if (!s)
 		return (NULL);
 	while (save[i])
@@ -88,7 +88,7 @@ char	*get_read(int fd, char *save)
 		else if (c <= 0)
 			break ;
 		ptr[c] = '\0';
-		save = my_join(save, ptr);
+		save = t_strjoin(save, ptr);
 		if (the_found(save, '\n') == 1)
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 13:33:08 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:02:52 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -39,20 +39,20 @@ char	**ft_str_pro_cpy(char **re, char **a)
 
 char	**case_of_3(char ***a, char **b)
 {
-	if (ft_atoi((*a)[0]) > ft_atoi((*a)[1]) && ft_atoi((*a)[1]) > ft_atoi((*a)[2]))
+	if (ft_atoi((*a)[0]) > ft_atoi((*a)[1])
+		&& ft_atoi((*a)[1]) > ft_atoi((*a)[2]))
 	{
 		sa((*a));
 		(*a) = rra((*a));
 	}
-	else if (ft_atoi((*a)[2]) > ft_atoi((*a)[0]) && ft_atoi((*a)[0]) > ft_atoi((*a)[1]))
-	{
+	else if (ft_atoi((*a)[2]) > ft_atoi((*a)[0])
+			&& ft_atoi((*a)[0]) > ft_atoi((*a)[1]))
 		sa((*a));
-	}
-	else if (ft_atoi((*a)[0]) > ft_atoi((*a)[1]) && ft_atoi((*a)[2]) > ft_atoi((*a)[1]))
-	{
+	else if (ft_atoi((*a)[0]) > ft_atoi((*a)[1])
+			&& ft_atoi((*a)[2]) > ft_atoi((*a)[1]))
 		(*a) = ra((*a));
-	}
-	else if (ft_atoi((*a)[1]) > ft_atoi((*a)[2]) && ft_atoi((*a)[2]) > ft_atoi((*a)[0]))
+	else if (ft_atoi((*a)[1]) > ft_atoi((*a)[2])
+			&& ft_atoi((*a)[2]) > ft_atoi((*a)[0]))
 	{
 		pb(&(*a), &b);
 		sa((*a));
@@ -78,33 +78,26 @@ int	number_still_inside(char **a, int ke)
 	return (0);
 }
 
-void	push_back(char **a, char **b)
+void	push_back(char **a, char **b, char **sorted)
 {
-	while (ft_strcount(b))
+	int	i;
+	int	j;
+
+	i = ft_strcount(b);
+	while (i)
 	{
-		if (snuffer_max(b) == 0)
-		{
+		j = snuffer_max(b);
+		if (j == 0)
 			pa(&a, &b);
+		else if (j >= i / 2)
+		{
+			b = rrb(b);
 		}
 		else
-		{
-			if ((int)snuffer_max(b) < (ft_strcount(b) / 2) + 1)
-			{
-				while (snuffer_max(b))
-				{
-					b = rb(b);
-				}
-			}
-			else
-			{
-				while (snuffer_max(b))
-				{
-					b = rrb(b);
-				}
-			}
-		}
+			b = rb(b);
+	i = ft_strcount(b);
 	}
-	free_exit(a, b, 1, 1);
+	free_ranger(a, b, sorted);
 }
 
 char	**the_clone(char **c)

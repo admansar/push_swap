@@ -6,15 +6,16 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 16:01:24 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:34:23 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 void	simple_sort(char **a, char **b, int j, int n)
 {
-	char	**co = NULL;
+	char	**co;
 
+	co = NULL;
 	while (!(done(a) == 1))
 	{
 		j = snuffer_min(a);
@@ -38,33 +39,6 @@ void	simple_sort(char **a, char **b, int j, int n)
 	free_exit(a, b, 1, 1);
 }
 
-void	case_(char **a, char **b, int c)
-{
-	int		i;
-	int		ke;
-	char	**so;
-
-	i = 0;
-	ke = 0;
-	while (ke != ft_strcount(a) - 1 && ft_strcount(a))
-	{
-		so = sorted_clone(a);
-		ke = next_num(so, c / 10);
-		while (number_still_inside(a, ke))
-		{
-			if (ft_atoi(a[0]) <= ke)
-				pb(&a, &b);
-			else
-				a = ra(a);
-		}
-		while (so[i])
-			free(so[i++]);
-		free(so);
-		i = 0;
-	}
-	push_back(a, b);
-}
-
 void	free_exit(char **a, char **b, int i1, int i2)
 {
 	int	i;
@@ -86,9 +60,9 @@ void	free_exit(char **a, char **b, int i1, int i2)
 	exit(0);
 }
 
-void free_ranger(char **a, char **b, char **sorted)
+void	free_ranger(char **a, char **b, char **sorted)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (b[i])
@@ -101,54 +75,37 @@ void free_ranger(char **a, char **b, char **sorted)
 	i = 0;
 	while (sorted[i])
 		free(sorted[i++]);
-	free (sorted);
+	free(sorted);
 	exit(0);
 }
 
 void	ranger(char **a, char **b, int chunks)
 {
 	char	**sorted;
-	int		i;
 	int		j;
 
 	sorted = sorted_clone(a);
-	i = 0;
 	j = 0;
 	while (ft_strcount(a))
 	{
-		if (ft_atoi(a[i]) <= ft_atoi(sorted[j]))
+		if (ft_atoi(a[0]) <= ft_atoi(sorted[j]))
 		{
 			pb(&a, &b);
-			b = rb(b);	i = 0;
-			if (j + chunks < ft_strcount(sorted))
-			j++;
-		}
-		else if (ft_atoi(a[i]) > ft_atoi(sorted[j]) && ft_atoi(a[i]) <= ft_atoi(sorted[j + chunks - 1]))
-		{
-			pb(&a, &b);
-			if (j + chunks < ft_strcount(sorted))
-			j++;
-		}
-		else if (ft_strcount(a)) 
-		{
-			a = ra(a);
-		}
-	}
-	i = ft_strcount(b);
-	while (i)
-	{
-		j = snuffer_max(b);
-		if (j == 0)
-			pa(&a, &b);
-		else if (j >= i / 2)
-		{
-			b = rrb(b);
-		}
-		else 
 			b = rb(b);
-		i = ft_strcount(b);
+			if (j + chunks < ft_strcount(sorted))
+				j++;
+		}
+		else if (ft_atoi(a[0]) > ft_atoi(sorted[j])
+			&& ft_atoi(a[0]) <= ft_atoi(sorted[j + chunks - 1]))
+		{
+			pb(&a, &b);
+			if (j + chunks < ft_strcount(sorted))
+				j++;
+		}
+		else if (ft_strcount(a))
+			a = ra(a);
 	}
-	free_ranger(a, b, sorted);	
+	push_back(a, b, sorted);
 }
 
 void	push_swap(char **a, char **b)
@@ -173,9 +130,9 @@ void	push_swap(char **a, char **b)
 	{
 		simple_sort(a, b, 0, 0);
 	}
-	else if (total <= 100) 
+	else if (total <= 100)
 		ranger(a, b, 15);
 	else
-		ranger(a, b, 30);
+		ranger(a, b, 35);
 	free_exit(a, b, 1, 0);
 }
