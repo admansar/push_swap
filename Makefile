@@ -1,10 +1,10 @@
-#NAME = push_swap
+NAME = push_swap
 
 BNAME = checker
 
 SRC = error.c main.c my_spliter.c push_swap.c  push_swap_utiles_4.c push_swap_utiles_1.c push_swap_utiles_2.c push_swap_utiles_3.c rules_1.c rules_2.c rules_3.c rules_utils_1.c rules_utils_2.c split_args.c writer.c error_utils.c 
 
-BSRC = error.c checker.c my_spliter.c push_swap.c  push_swap_utiles_4.c push_swap_utiles_1.c push_swap_utiles_2.c push_swap_utiles_3.c rules_1_bonus.c rules_2_bonus.c rules_3_bonus.c rules_1.c rules_2.c rules_3.c rules_utils_1.c rules_utils_2.c split_args.c writer.c error_utils.c 
+BSRC = error.c checker.c my_spliter.c push_swap.c  push_swap_utiles_4.c push_swap_utiles_1.c push_swap_utiles_2.c push_swap_utiles_3.c rules_1_bonus.c rules_2_bonus.c rules_3_bonus.c rules_1.c rules_2.c rules_3.c rules_utils_1.c rules_utils_2.c split_args.c writer.c error_utils.c checker_utils.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -32,7 +32,7 @@ RM = rm -rf
 
 all : make_libft $(NAME) done
 
-#bonus :  make_libft $(NAME)
+bonus : $(BNAME)
 
 make_libft :
 	@echo "\033[1;91m"
@@ -54,13 +54,14 @@ $(NAME) : $(OBJ) push_swap.h
 	@echo  "\033[0;33m"
 	$(CC) $(CFLAGS) $(OBJ) libft/libft.a -o $(NAME)  
 
-$(B) : $(OBJ) $(BOBJ)  push_swap.h
+$(BNAME) : $(BOBJ) push_swap.h
 	make -C libft
 	$(CC) $(CFLAGS) $(BOBJ) libft/libft.a -o $(BNAME)
 
 clean : clean_libft
 	@echo  "\033[0;31m"
 	$(RM) $(OBJ)
+	$(RM) $(BOBJ)
 
 clean_libft :
 	@cd libft/ && make clean

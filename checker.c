@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:21:14 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/30 02:49:27 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:05:39 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,48 +45,33 @@ void	init_errors(int ac, char **av)
 	}
 }
 
-void	checker(char **a, char **b)
+void	freeing_machine(char **a, char **b, int i)
 {
-	char *r;
-
-	r = get_next_line(0);
-	while (r)
+	i = 0;
+	if (ft_strcount(a) && !ft_strcount(b))
 	{
-		if (!ft_strncmp(r, "sa", 2) && ft_strcount(a) <= 1 && ft_strlen(r) == 3)
-		{}
-		else if (!ft_strncmp(r, "sa", 2) && ft_strlen(r) == 3)
-			sa_bonus(a);
-		else if (!ft_strncmp(r, "sb", 2) && ft_strcount(b) <= 1 && ft_strlen(r) == 3)
-		{}
-		else if (!ft_strncmp(r, "sb", 2) && ft_strlen(r) == 3)
-			sb_bonus(b);
-		else if (!ft_strncmp(r, "pa", 2) && ft_strcount(b) <= 0 && ft_strlen(r) == 3)
-		{}
-		else if (!ft_strncmp(r, "pa", 2) && ft_strlen(r) == 3)
-			pa_bonus(&a, &b);
-		else if (!ft_strncmp(r, "pb", 2) && ft_strcount(a) <= 0 && ft_strlen(r) == 3)
-		{}
-		else if (!ft_strncmp(r, "pb", 2) && ft_strlen(r) == 3)
-			pb_bonus(&a, &b);
-		else if (!ft_strncmp(r, "ss", 2) && (ft_strcount(b) <= 1) && ft_strlen(r) == 3)
-			sa_bonus(a);
-		else if (!ft_strncmp(r, "ss", 2) && (ft_strcount(a) <= 1) && ft_strlen(r) == 3)
-			sb_bonus(b);
-		else if (!ft_strncmp(r, "ss", 2) && ft_strlen(r) == 3)
-			ss_bonus(&a, &b);
-		else 
-		{
-			write (2, "Error\n", ft_strlen("Error\n"));
-			exit (1);
-		}
-		the_writer(a,b);
-		r = get_next_line(0);
+		while (a[i])
+			free(a[i++]);
+		free(a);
+		free(b);
 	}
-	if (done (a) && !ft_strcount(b))
-		ft_printf ("OK\n");
-	else
-		ft_printf ("KO\n");
-	(void)b;
+	else if (ft_strcount(b) && !ft_strcount(a))
+	{
+		while (b[i])
+			free(b[i++]);
+		free(b);
+		free(a);
+	}
+	else if (ft_strcount(a) && ft_strcount(b))
+	{
+		while (a[i])
+			free(a[i++]);
+		free(a);
+		i = 0;
+		while (b[i])
+			free(b[i++]);
+		free(b);
+	}
 }
 
 int	main(int ac, char **av)
@@ -102,7 +87,5 @@ int	main(int ac, char **av)
 	ft_error(a);
 	b = ft_calloc(1, sizeof(char *));
 	checker(a, b);
-//	free(a);
-//	free(b);
 	return (0);
 }

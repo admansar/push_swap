@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:53:33 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/30 02:03:39 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:48:02 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSH_SWAP_H
 
 # include "libft/ft_printf.h"
-# include "libft/libft.h"
 # include "libft/get_next_line.h"
+# include "libft/libft.h"
 # include <limits.h>
 
 char			**switch_1_2(char **c);
@@ -83,10 +83,17 @@ void			ss_bonus(char ***c1, char ***c2);
 void			pb_bonus(char ***a, char ***b);
 void			pa_bonus(char ***a, char ***b);
 char			**rra_bonus(char **a);
-void   			rr_bonus(char ***a, char ***b);
-char   			**rb_bonus(char **a);
-char   			**ra_bonus(char **a);
+void			rr_bonus(char ***a, char ***b);
+char			**rb_bonus(char **a);
+char			**ra_bonus(char **a);
 void			rrr_bonus(char ***a, char ***b);
-char   			**rrb_bonus(char **b);
+char			**rrb_bonus(char **b);
+void			checker(char **a, char **b);
+void			cases(char ***a, char ***b, char **r, int i);
+void			continue_1(char ***a, char ***b, char **r, int i);
+void			continue_2(char ***a, char ***b, char **r, int i);
+void			the_end(char ***a, char ***b, char **r, int i);
+void			nothing(void);
+void			freeing_machine(char **a, char **b, int i);
 
 #endif

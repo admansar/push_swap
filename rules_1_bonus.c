@@ -17,7 +17,7 @@
 // swap one element thats a useles task !!
 char	**sa_bonus(char **c)
 {
-		switch_1_2(c);
+	switch_1_2(c);
 	return (c);
 }
 
@@ -26,7 +26,6 @@ char	**sa_bonus(char **c)
 // swap one element thats a useles task !!
 char	**sb_bonus(char **c)
 {
-
 	switch_1_2(c);
 	return (c);
 }

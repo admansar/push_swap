@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:57:08 by admansar          #+#    #+#             */
-/*   Updated: 2022/12/27 00:02:01 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 23:45:07 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,8 @@ char	**words(char **av)
 	}
 	free(av);
 	return (a);
+}
+
+void	nothing(void)
+{
 }

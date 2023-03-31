@@ -6,7 +6,7 @@
 /*   By: admansar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 12:00:02 by admansar          #+#    #+#             */
-/*   Updated: 2023/03/29 23:34:00 by admansar         ###   ########.fr       */
+/*   Updated: 2023/03/30 19:39:27 by admansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -71,7 +71,7 @@ int	done(char **a)
 	int	i;
 
 	i = 1;
-	while (a[i])
+	while (a[i] && a)
 	{
 		if (ft_atoi(a[i - 1]) > ft_atoi(a[i]))
 			return (0);
